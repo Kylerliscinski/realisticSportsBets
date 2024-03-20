@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Realistic Sports Bets</title>
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css' rel='stylesheet'
+    integrity='sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD' crossorigin='anonymous'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- <script id="debug-script" src="https://cdn.jsdelivr.net/gh/MickShannahan/style-debug@latest/debug.min.js"
+    defer></script> -->
+</head>
+
+<body class="debug bg-image">
+  <nav class="container-fluid text-white">
+    <section class="row">
+      <div class="col-1">
+        <h1>RSB</h1>
+      </div>
+      <div class="col-6">
+        <h3>Realistic Sports Bets</h3>
+      </div>
+    </section>
+  </nav>
+
+  <header class="container-fluid">
+    <section class="row text-center text-white justify-content-center">
+      <h4>Bank</h4>
+      <div class="col-1 btn rounded-pill text-bg-success shadow bank-pill">
+        <!-- <h3></h3> -->
+      </div>
+    </section>
+
+    <section class="row text-center text-white justify-content-center">
+      <h4>Player Pool</h4>
+      <div id="draft-players" class="col-1 btn text-bg-dark shadow pool-pill">
+        <!-- <h3></h3> -->
+      </div>
+    </section>
+
+    <section class="row text-center text-white justify-content-around">
+      <div class="col-5">
+        <h5>Team 1</h5>
+        <div class="row">
+          <div onclick="assignTeamOne()" id="team-one" class="btn rounded-pill text-bg-light shadow team-pill">
+            <!-- <h3>Team 1</h3> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-5">
+        <h5>Team 2</h5>
+        <div class="row">
+          <div onclick="assignTeamTwo()" id="team-two" class="btn rounded-pill text-bg-light shadow team-pill">
+            <!-- <h3>Team 2</h3> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="row text-center text-white justify-content-around py-2">
+      <div class="col-1">
+        <div class="row">
+          <div class="btn rounded-pill text-bg-light shadow p-4">
+            <h3>Bet 5</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-1">
+        <div class="row">
+          <div class="btn rounded-pill text-bg-light shadow p-4">
+            <h3>Bet 25</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-1">
+        <div class="row">
+          <div class="btn rounded-pill text-bg-light shadow p-4">
+            <h3>Bet 100</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-1">
+        <div class="row">
+          <div class="btn rounded-pill text-bg-light shadow p-4">
+            <h3>Bet 5</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-1">
+        <div class="row">
+          <div class="btn rounded-pill text-bg-light shadow p-4">
+            <h3>Bet 25</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-1">
+        <div class="row">
+          <div class="btn rounded-pill text-bg-light shadow p-4">
+            <h3>Bet 100</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="row text-center text-white justify-content-around px-5">
+      <div class="col-3">
+        <div class="row">
+          <div class="btn rounded-pill text-bg-light shadow p-4">
+            <h3>Bet it all</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="row">
+          <div class="btn rounded-pill text-bg-light shadow p-4">
+            <h3>Bet it all</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </header>
+
+
+  <script src="app.js"></script>
+</body>
+
+</html>

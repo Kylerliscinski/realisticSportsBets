@@ -1,0 +1,18 @@
+.bg-image {
+  background-image: url(https://images.unsplash.com/photo-1602472097151-72eeec7a3185?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+}
+
+.bank-pill {
+  height: 70px;
+  width: 250px;
+}
+
+.team-pill {
+  height: 50px;
+  width: 700px;
+}
+
+.pool-pill {
+  height: 40px;
+  width: 500px;
+}
