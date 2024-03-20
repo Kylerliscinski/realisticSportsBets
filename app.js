@@ -123,24 +123,18 @@ const players = [
   },
 ]
 
-draftPlayers()
 
-function draftPlayers(player) {
-  // console.log("Drafting Players")
-  let playerHTML = ''
-  players.forEach((player) => {
-    // console.log(player.name);
-    playerHTML += `<span title="${player.name}">${player.emoji}</span>`
-  })
-  // console.log('all players', playerHTML);
-  const playerDraftElm = document.getElementById('draft-players')
-  playerDraftElm.innerHTML = playerHTML
-}
-
-function assignTeamOne() {
-  let playerHTML = ''
+function assignTeams() {
   players.forEach((player) => {
     player.teamNumber = Math.round(Math.random() + 1 * 1)
+  })
+  draftTeamOne()
+  draftTeamTwo()
+}
+
+function draftTeamOne() {
+  let playerHTML = ''
+  players.forEach((player) => {
     if (player.teamNumber == 1) {
       playerHTML += `<span title="${player.name}">${player.emoji}</span>`
       const teamOne = document.getElementById('team-one')
@@ -149,14 +143,17 @@ function assignTeamOne() {
   })
 }
 
-function assignTeamTwo() {
+function draftTeamTwo() {
   let playerHTML = ''
   players.forEach((player) => {
-    player.teamNumber = Math.round(Math.random() + 1 * 1)
     if (player.teamNumber == 2) {
       playerHTML += `<span title="${player.name}">${player.emoji}</span>`
       const teamOne = document.getElementById('team-two')
       teamOne.innerHTML = playerHTML
     }
   })
+}
+
+function betTeamOne() {
+  let
 }
