@@ -124,12 +124,17 @@ const players = [
 ]
 
 
+let teamOneScore = 0
+let teamTwoScore = 0
+
+
 function assignTeams() {
   players.forEach((player) => {
     player.teamNumber = Math.round(Math.random() + 1 * 1)
   })
   draftTeamOne()
   draftTeamTwo()
+  checkSkill()
 }
 
 function draftTeamOne() {
@@ -148,12 +153,75 @@ function draftTeamTwo() {
   players.forEach((player) => {
     if (player.teamNumber == 2) {
       playerHTML += `<span title="${player.name}">${player.emoji}</span>`
-      const teamOne = document.getElementById('team-two')
-      teamOne.innerHTML = playerHTML
+      const teamTwo = document.getElementById('team-two')
+      teamTwo.innerHTML = playerHTML
     }
   })
 }
 
+let teamOneSkill = 0
+let teamTwoSkill = 0
+let bankHTML = ''
+let bankValue = 0
+
+function checkSkill() {
+  let teamOne = players.filter((player) => player.teamNumber == 1)
+  let teamTwo = players.filter((player) => player.teamNumber == 2)
+
+  console.log(teamOne)
+  console.log(teamTwo)
+
+
+  for (let i = 0; i < teamOne.length; i++) {
+    // console.log(i)
+    teamOneSkill += teamOne[i].skill
+  }
+  for (let i = 0; i < teamTwo.length; i++) {
+    teamTwoSkill += teamTwo[i].skill
+  }
+  console.log(teamOneSkill)
+  console.log(teamTwoSkill)
+
+  // betTeamOne()
+  // betTeamTwo()
+}
+
 function betTeamOne() {
-  let
+  if (teamOneSkill > teamTwoSkill) {
+    console.log("Team 1 Up by 25");
+    bankValue += 25
+    bankHTML += 25
+    const bankElm = document.getElementById('bank')
+    bankElm.innerHTML = bankHTML
+    window.alert("You won!")
+  } else {
+    console.log("Team 1 down by 25")
+    bankValue += -25
+    bankHTML += -25
+    const bankElm = document.getElementById('bank')
+    bankElm.innerHTML = bankHTML
+    window.alert("You lost!")
+  }
+}
+
+function betTeamTwo() {
+  if (teamTwoSkill > teamOneSkill) {
+    console.log("Team 2 Up by 25");
+    bankValue += 25
+    bankHTML += 25
+    const bankElm = document.getElementById('bank')
+    bankElm.innerHTML = bankHTML
+    window.alert("You won!")
+  } else {
+    console.log("Team 2 down by 25")
+    bankValue += -25
+    bankHTML += -25
+    const bankElm = document.getElementById('bank')
+    bankElm.innerHTML = bankHTML
+    window.alert("You lost!")
+  }
+}
+
+function drawBank() {
+
 }
