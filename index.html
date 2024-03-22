@@ -13,114 +13,54 @@
     defer></script> -->
 </head>
 
-<body class="debug bg-image">
-  <nav class="container-fluid text-white">
-    <section class="row">
-      <div class="col-1">
-        <h1>RSB</h1>
+<body>
+  <section class="container-fluid">
+    <div class="row justify-content-around p-3">
+      <div class="col-2">
+        <h3 class="text-center">BANK</h3>
+        <div class="badge rounded-pill text-bg-success p-3 w-100" id="bank">$100</div>
+      </div>
+      <div class="col-2">
+        <h3 class="text-center">BID</h3>
+        <div class="badge rounded-pill text-bg-primary p-3 w-100" id="bid">$0</div>
+      </div>
+    </div>
+
+    <div class="row text-center p-3">
+      <div class="col-4">
+        <button class="px-4 rounded shadow" onclick="placeBet(10)">Bet $10</button>
+      </div>
+      <div class="col-4">
+        <button class="px-4 rounded shadow" onclick="placeBet(50)">Bet $50</button>
+      </div>
+      <div class="col-4">
+        <button class="px-4 rounded shadow" onclick="placeBet(1000)">Bet $1000</button>
+      </div>
+    </div>
+
+    <div class="row text-center p-3">
+      <div class="col-6">
+        <button class="px-4 rounded shadow bg-danger" onclick="chooseTeam('Rough Rangers')">
+          Rangers</button>
       </div>
       <div class="col-6">
-        <h3>Realistic Sports Bets</h3>
+        <button class="px-4 rounded shadow bg-warning" onclick="chooseTeam('Startling Sparrows')">Sparrows
+        </button>
       </div>
-    </section>
-  </nav>
+    </div>
 
-  <header class="container-fluid">
-    <section class="row text-center text-white justify-content-center">
-      <h4>Bank</h4>
-      <div id="bank" class="col-1 btn rounded-pill text-bg-success shadow bank-pill">
-        <!-- <h3></h3> -->
-      </div>
-    </section>
+    <div class="d-flex justify-content-around gap-4">
+      <div id="rangers"> Stars go here</div>
+      <div id="sparrows">snakes go here</div>
+    </div>
 
-    <section class="row text-center text-white justify-content-center mt-2">
-      <div onclick="assignTeams()" class="col-1 btn text-bg-primary shadow pool-pill">
-        <h4>Click to assign teams!</h4>
+    <div class="d-flex justify-content-around gap-4">
+      <div>
+        <button id="start" class="px-4 rounded shadow bg-primary" onclick="startGame()">Start Game
+        </button>
       </div>
-    </section>
-
-    <section class="row text-center text-white justify-content-around">
-      <div class="col-5">
-        <h5>Team 1</h5>
-        <div class="row">
-          <div onclick="assignTeams()" id="team-one" class="btn rounded-pill text-bg-light shadow team-pill">
-            <!-- <h3>Team 1</h3> -->
-          </div>
-        </div>
-      </div>
-      <div class="col-5">
-        <h5>Team 2</h5>
-        <div class="row">
-          <div onclick="assignTeams()" id="team-two" class="btn rounded-pill text-bg-light shadow team-pill">
-            <!-- <h3>Team 2</h3> -->
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="row text-center text-white justify-content-around py-2">
-      <div class="col-2">
-        <div class="row">
-          <div class="btn rounded-pill text-bg-light shadow p-4">
-            <h3>Bet 5</h3>
-          </div>
-        </div>
-      </div>
-      <div class="col-2">
-        <div class="row">
-          <div onclick="betTeamOne()" class="btn rounded-pill text-bg-light shadow p-4">
-            <h3>Bet 25</h3>
-          </div>
-        </div>
-      </div>
-      <div class="col-2">
-        <div class="row">
-          <div class="btn rounded-pill text-bg-light shadow p-4">
-            <h3>Bet 100</h3>
-          </div>
-        </div>
-      </div>
-      <div class="col-2">
-        <div class="row">
-          <div class="btn rounded-pill text-bg-light shadow p-4">
-            <h3>Bet 5</h3>
-          </div>
-        </div>
-      </div>
-      <div class="col-2">
-        <div class="row">
-          <div onclick="betTeamTwo()" class="btn rounded-pill text-bg-light shadow p-4">
-            <h3>Bet 25</h3>
-          </div>
-        </div>
-      </div>
-      <div class="col-2">
-        <div class="row">
-          <div class="btn rounded-pill text-bg-light shadow p-4">
-            <h3>Bet 100</h3>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="row text-center text-white justify-content-around px-5">
-      <div class="col-3">
-        <div class="row">
-          <div class="btn rounded-pill text-bg-light shadow p-4">
-            <h3>Bet it all</h3>
-          </div>
-        </div>
-      </div>
-      <div class="col-3">
-        <div class="row">
-          <div class="btn rounded-pill text-bg-light shadow p-4">
-            <h3>Bet it all</h3>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </header>
+    </div>
+  </section>
 
 
   <script src="app.js"></script>

@@ -1,4 +1,7 @@
 let bank = 100
+let bid = 0
+let biddingOnTeam = ''
+
 
 const players = [
   {
@@ -124,104 +127,74 @@ const players = [
 ]
 
 
-let teamOneScore = 0
-let teamTwoScore = 0
+function placeBet(amount) {
+  if (amount > bank) {
+    console.log('nope too rich')
+    return
+  }
+  bank -= amount
+  bid += amount
+  console.log(bank)
+  console.log(bid)
 
+  drawMoney()
+}
+
+function drawMoney() {
+  const bankElem = document.getElementById('bank')
+  const bidElem = document.getElementById('bid')
+
+  bankElem.innerText = `$${bank}`
+  bidElem.innerText = `$${bid}`
+
+  if (bank < 40) {
+    bankElem.style.color = 'red'
+  } else {
+    bankElem.style.color = 'unset'
+  }
+}
+
+function chooseTeam(teamName) {
+  biddingOnTeam = teamName
+
+  if (biddingOnTeam == 'teamOne') {
+    document.body.style.backgroundImage = 'url()'
+  } else {
+    document.body.style.backgroundImage = 'url()'
+  }
+}
+
+function drawStars() {
+  const starMembers = players.filter(p => p.teamNumber == 0)
+  let template = ''
+  starMembers.forEach(p => template += `<b title="${p.name}">${p.emoji}</b>`)
+  document.getElementById('rangers').innerHTML = template
+}
+
+function drawSnakes() {
+  const starMembers = players.filter(p => p.teamNumber == 1)
+  let template = ''
+  starMembers.forEach(p => template += `<b title="${p.name}">${p.emoji}</b>`)
+  document.getElementById('sparrows').innerHTML = template
+}
 
 function assignTeams() {
-  players.forEach((player) => {
-    player.teamNumber = Math.round(Math.random() + 1 * 1)
-  })
-  draftTeamOne()
-  draftTeamTwo()
-  checkSkill()
+  players.forEach(p => p.teamNumber = Math.random() < .5 ? 0 : 1)
+
+  //!SECTION Another way to do this ^
+  // players.forEach(p => {
+  //   const n = Math.random()
+
+  //   if (n < .5) {
+  //     p.teamNumber = 0
+  //   } else {
+  //     p.teamNumber = 1
+  //   }
+  // })
 }
 
-function draftTeamOne() {
-  let playerHTML = ''
-  players.forEach((player) => {
-    if (player.teamNumber == 1) {
-      playerHTML += `<span title="${player.name}">${player.emoji}</span>`
-      const teamOne = document.getElementById('team-one')
-      teamOne.innerHTML = playerHTML
-    }
-  })
-}
-
-function draftTeamTwo() {
-  let playerHTML = ''
-  players.forEach((player) => {
-    if (player.teamNumber == 2) {
-      playerHTML += `<span title="${player.name}">${player.emoji}</span>`
-      const teamTwo = document.getElementById('team-two')
-      teamTwo.innerHTML = playerHTML
-    }
-  })
-}
-
-let teamOneSkill = 0
-let teamTwoSkill = 0
-let bankHTML = ''
-let bankValue = 0
-
-function checkSkill() {
-  let teamOne = players.filter((player) => player.teamNumber == 1)
-  let teamTwo = players.filter((player) => player.teamNumber == 2)
-
-  console.log(teamOne)
-  console.log(teamTwo)
-
-
-  for (let i = 0; i < teamOne.length; i++) {
-    // console.log(i)
-    teamOneSkill += teamOne[i].skill
-  }
-  for (let i = 0; i < teamTwo.length; i++) {
-    teamTwoSkill += teamTwo[i].skill
-  }
-  console.log(teamOneSkill)
-  console.log(teamTwoSkill)
-
-  // betTeamOne()
-  // betTeamTwo()
-}
-
-function betTeamOne() {
-  if (teamOneSkill > teamTwoSkill) {
-    console.log("Team 1 Up by 25");
-    bankValue += 25
-    bankHTML += 25
-    const bankElm = document.getElementById('bank')
-    bankElm.innerHTML = bankHTML
-    window.alert("You won!")
-  } else {
-    console.log("Team 1 down by 25")
-    bankValue += -25
-    bankHTML += -25
-    const bankElm = document.getElementById('bank')
-    bankElm.innerHTML = bankHTML
-    window.alert("You lost!")
-  }
-}
-
-function betTeamTwo() {
-  if (teamTwoSkill > teamOneSkill) {
-    console.log("Team 2 Up by 25");
-    bankValue += 25
-    bankHTML += 25
-    const bankElm = document.getElementById('bank')
-    bankElm.innerHTML = bankHTML
-    window.alert("You won!")
-  } else {
-    console.log("Team 2 down by 25")
-    bankValue += -25
-    bankHTML += -25
-    const bankElm = document.getElementById('bank')
-    bankElm.innerHTML = bankHTML
-    window.alert("You lost!")
-  }
-}
-
-function drawBank() {
-
+function startGame() {
+  assignTeams()
+  drawStars()
+  drawSnakes()
 }
